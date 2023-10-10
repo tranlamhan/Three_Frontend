@@ -1,0 +1,75 @@
+// css navigator (Menu)
+body {
+  nav {
+    width: 100%;
+    height: 100vh;
+    background: url("../img/main.jpg");
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    transform: translateX(-100%);
+    transition: $t;
+    .menu {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      li {
+        padding: 20px;
+        a {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          @include text(16px, MSB, normal, $white-cl, uppercase);
+          @include transition($t);
+          &::before {
+            content: "";
+            width: 0;
+            height: 2px;
+            background: $border-cl;
+            display: block;
+            position: absolute;
+            bottom: -5px;
+            @include transition($t);
+          }
+          &:hover::before {
+            width: 100%;
+            @include transition($t);
+          }
+        }
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  }
+  &.menu-two {
+    overflow: hidden;
+    nav {
+      transform: translateX(0);
+      transition: $t;
+    }
+    header {
+      .container-fluid {
+        .btn-menu {
+          span {
+            background: transparent;
+          }
+          &::before {
+            transform: rotateZ(45deg) translate(7px, 5px);
+          }
+          &::after {
+            transform: rotateZ(-45deg) translate(7px, -6px);
+          }
+        }
+      }
+    }
+  }
+}

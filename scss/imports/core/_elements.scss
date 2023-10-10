@@ -1,0 +1,107 @@
+// css button, title, icon, elements...
+img {
+  max-width: 100%;
+}
+.btn-view {
+  cursor: pointer;
+  padding: 20px;
+  border: 2px solid $border-cl;
+  width: max-content;
+  letter-spacing: 5px;
+  position: relative;
+  @include text(13px, MB, normal, $title-cl, uppercase);
+  @include transition($t);
+  &:before,
+  &:after {
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background: $title-cl;
+    @include transition($t);
+    content: " ";
+  }
+  &:before {
+    left: 0;
+    top: -2px;
+  }
+
+  &:after {
+    bottom: -2px;
+    right: 0;
+  }
+
+  &:hover {
+    border-color: $title-cl;
+    &:before,
+    &:after {
+      width: 100%;
+    }
+  }
+}
+@include xs {
+  .btn-view {
+    padding: 15px;
+  }
+}
+@include xxs {
+  .btn-view {
+    padding: 12px;
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+}
+.slider__control {
+  &-btnControl {
+    cursor: pointer;
+    padding: 15px;
+    border: 2px solid $border-cl;
+    position: relative;
+    @include transition($t);
+    img {
+      width: 25px;
+      @include mid(initial);
+    }
+    &.prev {
+      margin-bottom: 25px;
+      img {
+        transform: rotate(180deg);
+      }
+    }
+    &:before,
+    &:after {
+      width: 0%;
+      height: 2px;
+      position: absolute;
+      background: $title-cl;
+      @include transition($t);
+      content: " ";
+    }
+    &:before {
+      left: 0;
+      top: -2px;
+    }
+
+    &:after {
+      bottom: -2px;
+      right: 0;
+    }
+
+    &:hover {
+      border-color: $title-cl;
+      &:before,
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+@include xxs {
+  .slider__control {
+    &-btnControl {
+      padding: 10px;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}

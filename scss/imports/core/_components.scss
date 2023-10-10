@@ -1,0 +1,208 @@
+// css components
+p {
+  @include text(16px, ML, normal, $text-cl, normal);
+}
+.text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .title {
+    padding-left: 45px;
+    position: relative;
+    .title-one {
+      letter-spacing: 15px;
+      @include text(40px, MB, normal, $title-cl, uppercase);
+    }
+    .title-two {
+      @include text(80px, PDB, normal, $title-cl, uppercase);
+    }
+    &::before {
+      content: "";
+      width: 130px;
+      height: 2px;
+      background: $border-cl;
+      position: absolute;
+      left: -12%;
+      bottom: 50%;
+      transform: rotate(90deg);
+    }
+  }
+  p {
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+  }
+}
+@include sm {
+  .text {
+    .title {
+      padding-left: 30px;
+      .title-one {
+        letter-spacing: 10px;
+        font-size: 30px;
+      }
+      .title-two {
+        font-size: 50px;
+      }
+      &::before {
+        width: 115px;
+        left: -16%;
+        bottom: 65%;
+      }
+    }
+    p {
+      padding-left: 60px;
+    }
+  }
+}
+@include xs {
+  .text {
+    grid-template-columns: 1fr;
+    .title {
+      padding-left: 25px;
+      .title-two {
+        font-size: 60px;
+      }
+      &::before {
+        width: 115px;
+        left: -12%;
+        bottom: 50%;
+      }
+    }
+    p {
+      padding-left: 0px;
+      padding-top: 10px;
+    }
+  }
+}
+@include xxs {
+  .text {
+    .title {
+      padding-left: 10px;
+      .title-one {
+        letter-spacing: 5px;
+      }
+      .title-two {
+        font-size: 50px;
+      }
+      &::before {
+        width: 100px;
+        left: -10%;
+      }
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  .text {
+    .title {
+      &::before {
+        left: -12%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 380px) {
+  .text {
+    .title {
+      padding-left: 10px;
+      .title-one {
+        font-size: 25px;
+      }
+      .title-two {
+        font-size: 40px;
+      }
+      &::before {
+        width: 100px;
+        left: -14%;
+      }
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}
+@media only screen and (max-width: 320px) {
+  .text {
+    .title {
+      .title-one {
+        font-size: 20px;
+      }
+      .title-two {
+        font-size: 35px;
+      }
+      &::before {
+        left: -17%;
+      }
+    }
+  }
+}
+.text_project {
+  opacity: 0;
+  pointer-events: none;
+  @include transition($t);
+  @include mid(false);
+  width: 80%;
+  height: 80%;
+  border: 2px solid $border-cl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .text-project-one {
+    opacity: 0;
+    visibility: hidden;
+    letter-spacing: 10px;
+    transition-delay: 0.4s;
+    transform: translateY(-10%);
+    @include transition($t);
+    @include text(20px, MB, normal, $border-cl, uppercase);
+  }
+  .text-project-two {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.6s;
+    transform: translateY(-10%);
+    @include transition($t);
+    @include text(40px, PDB, normal, $white-cl, uppercase);
+  }
+  .group-icon-member {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 0.8s;
+    transform: translateY(-10%);
+    @include transition($t);
+    li {
+      padding: 30px 15px;
+      .img-icon-member {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  .text_project {
+    .text-project-one {
+      letter-spacing: 5px !important;
+    }
+    .text-project-two {
+      font-size: 30px !important;
+    }
+  }
+}
+@media only screen and (max-width: 380px) {
+  .text_project {
+    .text-project-one {
+      letter-spacing: 3px !important;
+      font-size: 15px !important;
+    }
+    .text-project-two {
+      font-size: 20px !important;
+    }
+  }
+}
